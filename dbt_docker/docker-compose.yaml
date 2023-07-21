@@ -1,0 +1,24 @@
+version: "3.9"
+
+
+services:
+  postgres:
+    container_name: postgres_dbt
+    image: frantiseks/postgres-sakila
+    ports:
+      - "8903:5432"
+    healthcheck:
+      test: ["CMD-SHELL","pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  dbt:
+    container_name: dbt_demo
+    build: .
+    image: dbt-demo
+    volumes:
+      - ./:/usr/src/dbt
+    depends_on:
+      postgres:
+        condition: service_healthy
