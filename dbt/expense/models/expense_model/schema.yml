@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: expense_source
+    database: spotify
+    schema: testing
+    tables:
+      - name: expense_everybody
+
+models:
+  - name: everybody_totalexpense
+  - name: commute_expense
+  - name: commute_expense_jpy
