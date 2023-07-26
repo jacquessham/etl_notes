@@ -11,7 +11,8 @@ Before getting your hands dirty on dbt, you should have a database ready. In thi
 4. Update profile.yaml
 5. Initiate dbt project folder
 6. Prepare models (SQL scripts)
-7. Run dbt
+7. Test dbt
+8. Run dbt
 
 ### Create Environment
 The first step is to create a Python enviornment, ensure the Python version > 3.8, and install all necessary dependences.
@@ -128,7 +129,12 @@ group by 1, 2
 Note: <i>expense_source</i> and <i>expense_everybody</i> in the SQL script is mapped to the source name stated in <i>schema.yml</i>.
 
 ### Run Test
-You may run test to assert your models and other resource, dbt will tell you if each test in your project passes or fails. If so, execute:
+You may run test to assert your models and other resource, dbt will tell you if each test in your project passes or fails. There are two ways of defining test: <i>singular</i> and <i>generic</i>.
+<br><br>
+* Singular Test: Simplest form. It test a SQL query and returns failing rows
+* Generic Test: Parametrized query that accepts arguments defined in the Yaml files.
+<br><br>
+If so, execute:
 
 ```
 dbt test
@@ -170,5 +176,6 @@ you may utilize Macros to build a function. First, define the Macros under the <
 
 
 ## Reference
+<a href="https://docs.getdbt.com/docs/introduction">dbt Documentation</a>
 <a href="https://youtu.be/toSAAgLUHuk">Run Locally</a>
 <a href="https://youtu.be/mSXuh0szBGk">Run in Docker</a>
