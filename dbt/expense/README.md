@@ -1,7 +1,24 @@
 # Expense (dbt Demo 2)
 In this dbt Project, we will experiment some advanced dbt features. At this point, you are expected to have <i>profile.yml</i> prepared.
 
-## Seed
+
+## Example Explained
+We have gathered some data on the expense from a couple of person concerns on their expense records on food and transportation. In this demo, we would like to upload the data to a database and conduct some analysis against it. 
+
+### How to do it with dbt?
+We have a CSV file <i>expense_everybody.csv</i> as a sample dataset saved under the [seeds](/seeds/expense_everybody.csv) folder, then we will:
+
+<ol>
+  <li>Upload the dataset to the source table in the database via <b>seed</b></li>
+  <li>Transform the data with the SQL scripts in the <b>models</b> folders, utilizing Jinja to reference tables, aggregated queries, and Macro</li>
+  <li>Load into staging and output tables</li>
+</ol>
+
+<br><br>
+You may find more the technical details in the following section.
+
+## Technical Explanation
+### Seed
 We have a CSV file <i>expense_everybody.csv</i> as a sample dataset to be uploaded to the database. First, fill in the configuration in the Project Yaml file like below:
 
 ```
@@ -28,7 +45,7 @@ dbt seed
 <br>
 After the execution finished sucessfully, you may check the table under the schema stated in the <i>profile.yml</i> file.
 
-## Models
+### Models
 Here are all the SQL scripts in the <i>models</i> folder:
 * total_amount.sql
 * everybody_totalexpense.sql
@@ -60,7 +77,7 @@ group by 1, 2
 
 <i>expense_source</i> and <i>expense_everybody</i> in the SQL script is mapped to the source name stated in <i>schema.yml</i>.
 
-### Jinja
+#### Jinja
 You may utilize Jinja syntax to use a for loop or if statement in Python when creating your SQL syntax. For example, you may use this when creating mulitple similar case when value equal to something for mulitple time, like below:
 
 ```
@@ -78,7 +95,7 @@ group by 1
 <br>
 It means I would decleare a Python list in this SQL script and create the expense type as column in a Python style for loop. <b>Note: The for loop do not take care the comma(,) automatically for you! So you have to include in the loop, that means you need an extra hardcoded column at the end to prevent syntax error of placing comma(,) before the from component...</b>
 
-### Macros
+#### Macros
 you may utilize Macros to build a function. First, define the Macros under the <i>macros</i> folder and write a Macro in a SQL script, like below:
 
 ```

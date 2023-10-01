@@ -1,18 +1,24 @@
 # dbt
 dbt is a transformation tool that allows you to build the data pipeline with Jinja format and SQL scripts. It is a tool for you if your pipeline is heavily rely on SQL scripts for transformation.
 
+
 ## Quick Start
 Before getting your hands dirty on dbt, you should have a database ready. In this project, we will be using Postgres. We have two projects: [dbt_demo](/dbt_demo) and [Expense](/expense) to demostrate the basic and advance use cases of dbt.
+<br>
+
 
 ### Steps to Prepare Prerequisites and Execution
-1. Upgrade Python > 3.8
-2. Create environment
-3. Install dbt, along with database adapter
-4. Update profile.yaml
-5. Initiate dbt project folder
-6. Prepare models (SQL scripts)
-7. Test dbt
-8. Run dbt
+<ol>
+  <li>Upgrade Python > 3.8</li>
+  <li>Create environment</li>
+  <li>Install dbt, along with database adapter</li>
+  <li>Update profile.yaml</li>
+  <li>Initiate dbt project folder</li>
+  <li>Prepare models (SQL scripts)</li>
+  <li>Test dbt</li>
+  <li>Run dbt</li>
+</ol>
+
 
 ### Create Environment
 The first step is to create a Python enviornment, ensure the Python version > 3.8, and install all necessary dependences.
@@ -84,6 +90,8 @@ seeds:
 ...
 ```
 
+<br>
+
 You may find the this example in the [Expense](/expense) Project folder.
 
 
@@ -131,8 +139,12 @@ Note: <i>expense_source</i> and <i>expense_everybody</i> in the SQL script is ma
 ### Run Test
 You may run test to assert your models and other resource, dbt will tell you if each test in your project passes or fails. There are two ways of defining test: <i>singular</i> and <i>generic</i>.
 <br><br>
-* Singular Test: Simplest form. It test a SQL query and returns failing rows
-* Generic Test: Parametrized query that accepts arguments defined in the Yaml files.
+
+<ul>
+  <li>Singular Test: Simplest form. It test a SQL query and returns failing rows</li>
+  <li>Generic Test: Parametrized query that accepts arguments defined in the Yaml files.</li>
+</ul>
+
 <br><br>
 If so, execute:
 
