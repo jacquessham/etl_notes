@@ -75,7 +75,7 @@ from {{ source('expense_source','expense_everybody')}}
 group by 1, 2
 ```
 
-<i>expense_source</i> and <i>expense_everybody</i> in the SQL script is mapped to the source name stated in <i>schema.yml</i>.
+<i>expense_source</i> and <i>expense_everybody</i> in the SQL script is mapped to the source name stated in <i>schema.yml</i> under the <b>seeds section</b>.
 
 #### Jinja
 You may utilize Jinja syntax to use a for loop or if statement in Python when creating your SQL syntax. For example, you may use this when creating mulitple similar case when value equal to something for mulitple time, like below:
